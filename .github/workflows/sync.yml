@@ -1,0 +1,32 @@
+name: Fork Sync
+on:
+  push:
+    branches: [ "main" ]
+  schedule:
+    - cron: '5 0 * * *'  # Schedule the workflow to run once a day, adjust the timing as needed
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    if: github.repository_owner != 'end-gfw'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Sync with upstream
+        run: |
+          git config --global user.email "test@test.com"
+          git config --global user.name "test"
+          git checkout main  # Or the default branch of your fork
+          git reset --hard $(git rev-list --max-parents=0 HEAD)
+          #git add .github/workflows/
+          #git checkout .
+          #git clean -df
+          git remote add upstream https://github.com/end-gfw/google-groups.git
+          git fetch upstream main
+          git merge --allow-unrelated-histories upstream/main --no-edit
+          git push -f
