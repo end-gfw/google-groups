@@ -26,13 +26,13 @@
 
 0574c0e3db87e0ddce32b112c16b626543f20991694b66718160e54d3daa71762f
 
-<img src='/session.png' width='200' height='400' />
+<img src='/session.jpg' width='200' height='400' />
 
 ### Skred
 
 https://invite.skred.mobi/?skredcodeId=b2432d84-2f9b-4e8c-a43f-f01f96bfebb7
 
-<img src='/skred.png' width='200' height='400' />
+<img src='/skred.jpg' width='200' height='400' />
 
 可以向 李老师不是你老师 代为投稿
 
